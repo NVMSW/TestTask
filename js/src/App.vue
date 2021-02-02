@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <div class="f">
-      <input type="text" placeholder="Search..." v-model="q" />
-      <label>
-        <input type="checkbox" v-model="hide" />
-        <span>Скрывать строки, в которых не найдены соответствия</span>
-      </label>
+    <div class="container">
+      <div class="controll-container">
+        <input type="text" placeholder="Search..." v-model="q" />
+        <label>
+          <input type="checkbox" v-model="hide" />
+          <span>Скрывать строки, в которых не найдены соответствия</span>
+        </label>
+      </div>
+      <Table :q="q" :hide="hide" :data="movie" />
     </div>
-    <Table :q="q" :hide="hide" :data="movie" />
   </div>
 </template>
 
@@ -25,8 +27,7 @@ export default {
           title: "Spider Man",
           year: 2000,
           rating: 7,
-          description:
-            "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko",
+          description: "Spider-Man is a fictional superher..",
           type: "movie",
           season: "summer",
           duration: 90,
@@ -150,10 +151,16 @@ export default {
 };
 </script>
 <style>
-.f {
+@import "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css";
+.controll-container {
   display: flex;
+  line-height: 50px;
 }
-label>span{
-    white-space: nowrap;
+label {
+  margin-left: 20px;
+}
+
+label > span {
+  white-space: nowrap;
 }
 </style>
